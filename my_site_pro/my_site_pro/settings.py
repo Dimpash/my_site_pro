@@ -28,7 +28,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG') != 'False'
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'dzmitry76.pythonanywhere.com']
+CSRF_TRUSTED_ORIGINS = ['https://dzmitry76.pythonanywhere.com']
+
 
 
 # Application definition
@@ -150,3 +152,5 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+
+
