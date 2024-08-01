@@ -1,0 +1,90 @@
+{
+    "simba": {
+        "Name": {
+            "en": "SIMBA",
+            "ru": "СИМБА"
+        },
+        "Category": "Web app, Databases",
+        "Client": {
+            "en": "RUE \"Vitebskenergo\"",
+            "ru": "РУП \"Витебскэнерго\""
+        },
+        "Period": "2023-2024",
+        "URL": "",
+        "Filter": "WEB",
+        "Note": {
+            "en": "Interactive Management and Business Analysis System",
+            "ru": "Система интерактивного менеджмента и бизнес-анализа"
+        },
+        "Description": {
+            "en": "A WEB project that provides a wide range of reporting data on the state of electricity metering, servicing consumers of electricity and much more. Includes dozens of diagrams and tables. Integrated with the main settlement systems of the enterprise.\n Development environment: Apache Superset + Python + Django.",
+            "ru": "WEB-проект, предоставляющий широкий спектр отчетных данных по состоянию учёта электрической энергии, обслуживанию потребителей электрической энергии  и многого другого. Включает десятки диаграмм и таблиц. Интегрирован с основными расчетными системами предприятия.\n Среда разработки: Apache Superset + Python + Django."
+        }
+    },
+    "bars": {
+        "Name": {
+            "en": "BARS",
+            "ru": "БАРС"
+        },
+        "Category": "Desktop app, Databases",
+        "Client": {
+            "en": "RUE \"Vitebskenergo\"",
+            "ru": "РУП \"Витебскэнерго\""
+        },
+        "Period": "2014-2024",
+        "URL": "",
+        "Filter": "App",
+        "Note": {
+            "en": "Software for balancing and analysis of distributed power grids",
+            "ru": "Информационная система БАРС (Баланс и Анализ Распределительной Сети)"
+        },
+        "Description": {
+            "en": "Desktop application for compiling multi-level balances of the distribution network, searching for loss sources.\n Development environment: Delphi.\n Maintaining reference books, forming the structure of the distribution network is implemented in a separate WEB application.\n Development environment: Python + Django.",
+            "ru": "Десктопное приложение для составления многоуровневых балансов распределительной сети, поиска очагов потерь.\n Среда разработки: Delphi.\n Ведение справочников, формирование структуры распределительной сети реализовано в отдельном WEB-приложении.\n Среда разработки: Python + Джанго."
+        }
+    }, 
+    "elbyt": {
+        "Name": {
+            "en": "Electro-Byt",
+            "ru": "Электро-быт"
+        },
+        "Category": "Desktop app, Databases",
+        "Client": {
+            "en": "RUE \"Vitebskenergo\"",
+            "ru": "РУП \"Витебскэнерго\""
+        },
+        "Period": "2013-2024",
+        "URL": "",
+        "Filter": "App",
+        "Note": {
+            "en": "Software for providing a full cycle of servicing household consumers of electricity.",
+            "ru": "Автоматизация всего цикла обслуживания бытовых потребителей электроэнергии."
+        },
+        "Description": {
+            "en": "A desktop application that computerizes the entire range of tasks for servicing household consumers, organizing the work of sales departments.\n Development environment: Delphi. The database is implemented in the form of 23 distributed Firebird SQL servers, replicated to a single central MS SQL Server.",
+            "ru": "Десктопное приложение, автоматизирующее весь комплекс задач по обслуживанию бытовых потребителей, организации работы сбытовых подразделений.\n Среда разработки: Delphi. База данных реализована в виде 23 распределенных SQL серверов Firebird, реплицируемых в единый центральный MS SQL Server."
+        }
+    },
+    "teplo": {
+        "Name": {
+            "en": "Heat",
+            "ru": "Тепло-юрлица"
+        },
+        "Category": "Desktop app, Databases",
+        "Client": {
+            "en": "RUE \"Vitebskenergo\"",
+            "ru": "РУП \"Витебскэнерго\""
+        },
+        "Period": "2020-2024",
+        "URL": "",
+        "Filter": "App",
+        "Note": {
+            "en": "Software for ensuring settlements with consumers of thermal energy.",
+            "ru": "Программный комплекс для обеспечения расчетов с потребителями тепловой энергии."
+        },
+        "Description": {
+            "en": "A desktop application that automates settlements with consumers of thermal energy, maintaining contractual work.\n Development environment: Delphi, MS SQL Server.",
+            "ru": "Десктопное приложение, автоматизирующее расчеты с потребителями тепловой энергии, ведение договорной работы.\n Среда разработки: Delphi, MS SQL Server."
+        }
+    }
+}

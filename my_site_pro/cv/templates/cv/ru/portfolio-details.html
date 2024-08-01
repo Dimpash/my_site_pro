@@ -1,0 +1,85 @@
+{% load static %}
+{% include "cv/ru/header.html" %}
+<main class="main">
+  <!-- Page Title -->
+  <div class="page-title dark-background">
+    <div class="container d-lg-flex justify-content-between align-items-center">
+      <h1 class="mb-2 mb-lg-0">Portfolio Details</h1>
+      <nav class="breadcrumbs">
+        <ol>
+          <li>
+            <a href="{% url 'cv-start' lang='ru' %}">Home</a>
+          </li>
+          <li class="current">Portfolio Details</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <!-- End Page Title -->
+  <!-- Portfolio Details Section -->
+  <section id="portfolio-details" class="portfolio-details section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="row gy-4">
+        <div class="col-lg-8">
+          <div class="portfolio-details-slider swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+              {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                  "delay": 5000
+                },
+                "slidesPerView": "auto",
+                "pagination": {
+                  "el": ".swiper-pagination",
+                  "type": "bullets",
+                  "clickable": true
+                }
+              }
+            </script>
+            <div class="swiper-wrapper align-items-center">
+              {% for pict in images %}
+                {% with img_url='cv/img/portfolio/'|add:pf_name|add:'/'|add:pict %}
+                  <div class="swiper-slide">
+                    <img src="{% static img_url %}" alt="Portfolio Photo Collection">
+                  </div>
+                {% endwith %}
+              {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
+            <h3>Информация о проекте</h3>
+            <ul>
+              <li>
+                <strong>Наименование</strong>: {{ pf_item.Name.ru }}
+              </li>
+              <li>
+                <strong>Категория</strong>: {{ pf_item.Category }}
+              </li>
+              <li>
+                <strong>Заказчик</strong>: {{ pf_item.Client.ru }}
+              </li>
+              <li>
+                <strong>Период</strong>: {{ pf_item.Period }}
+              </li>
+              {% if pf_item.URL > '' %}
+                <li>
+                  <strong>Ссылка на проект</strong>: <a href="#">{{ pf_item.URL }}</a>
+                </li>
+              {% endif %}
+            </ul>
+          </div>
+          <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
+            <h2>{{ pf_item.Note.ru }}</h2>
+            <p>{{ pf_item.Description.ru|linebreaksbr }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Portfolio Details Section -->
+</main>
+{% include "cv/en/footer.html" %}

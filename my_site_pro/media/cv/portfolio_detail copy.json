@@ -1,0 +1,52 @@
+{
+    "app1": {
+        "Name": "Application1", 
+        "Category": "Web app", 
+        "Client": "ASU Company", 
+        "Period": "01 March, 2020", 
+        "URL": "www.example.com", 
+        "Filter": "App",
+        "Note": "Test record",
+        "Description": "Description of Application1"
+    }, 
+    "simba": {
+        "Name": "SIMBA", 
+        "Category": "Web app, Databases", 
+        "Client": "RUE \"Vitebskenergo\"", 
+        "Period": "2023", 
+        "URL": "", 
+        "Filter": "WEB",
+        "Note": "Interactive Management and Business Analysis System",
+        "Description": "Interactive Management and Business Analysis System Interactive Management and Business Analysis System"
+    }, 
+    "bars": {
+        "Name": "BARS", 
+        "Category": "Desktop app, Databases", 
+        "Client": "RUE \"Vitebskenergo\"", 
+        "Period": "2015-2024", 
+        "URL": "", 
+        "Filter": "App",
+        "Note": "Software for balancing and analysis of distributed power grids.",
+        "Description": "Software for balancing and analysis of distributed power grids. Software for balancing and analysis of distributed power grids."
+    },
+    "elbyt": {
+        "Name": "Electro-Byt", 
+        "Category": "Desktop app, Databases", 
+        "Client": "RUE \"Vitebskenergo\"", 
+        "Period": "2013-2024", 
+        "URL": "", 
+        "Filter": "App",
+        "Note": "Software for providing a full cycle of servicing household consumers of electricity.",
+        "Description": "Программный комплекс для обеспечения полного цикла обслуживания бытовых потребителей электроэнергии ."
+    },
+    "teplo": {
+        "Name": "Heat", 
+        "Category": "Desktop app, Databases", 
+        "Client": "RUE \"Vitebskenergo\"", 
+        "Period": "2013-2024", 
+        "URL": "", 
+        "Filter": "App",
+        "Note": "Software for ensuring settlements with consumers of thermal energy.",
+        "Description": "Программнный комплекс для обеспечения расчетов с потребителями тепловой энергии."
+    }
+}
