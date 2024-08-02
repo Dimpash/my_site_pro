@@ -31,8 +31,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'SECRET_KEY_NOT_FOUND')
 DEBUG = os.environ.get('DEBUG') != 'False'
 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'dzmitry76.onrender.com']
-CSRF_TRUSTED_ORIGINS = ['https://dzmitry76.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'dzmitry76.onrender.com', 'dzmitry.onrender.com']
+CSRF_TRUSTED_ORIGINS = ['https://dzmitry76.onrender.com', 'dzmitry.onrender.com']
 
 
 
