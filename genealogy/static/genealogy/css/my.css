@@ -19,7 +19,8 @@ body {
     
     /* background-image: url('static/genealogy/img/background_6.jpg');
     background-size: cover; */
-    background-image: url('../img/background_7.jpg'); 
+    background-image: url("/static/genealogy/img/background_7.jpg"); 
+    
     background-size: cover;
     
     /* background-repeat: repeat-x; */
