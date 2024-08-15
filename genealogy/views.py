@@ -189,8 +189,7 @@ class PersonsListView(LoginRequiredMixin, ListView):
 
         portraits = {}
         for item in self.queryset:
-            check_path = f'genealogy/static/genealogy/img/portrait/{
-                item.person_id}.jpg'
+            check_path = f'genealogy/static/genealogy/img/portrait/{item.person_id}.jpg'
             if os_path.exists(check_path):
                 portrait_path = f'genealogy/img/portrait/{item.person_id}.jpg'
             elif item.gender == 'm':
@@ -250,11 +249,9 @@ class PersonalCardDetailView(LoginRequiredMixin, DetailView):
                 spouses.append(couple.he)
 
         # Select portrait photo
-        check_path = f'genealogy/static/genealogy/img/portrait/{
-            self.object.person_id}.jpg'
+        check_path = f'genealogy/static/genealogy/img/portrait/{self.object.person_id}.jpg'
         if os_path.exists(check_path):
-            portrait_path = f'genealogy/img/portrait/{
-                self.object.person_id}.jpg'
+            portrait_path = f'genealogy/img/portrait/{self.object.person_id}.jpg'
         elif self.object.gender == 'm':
             portrait_path = 'genealogy/img/portrait/male.jpg'
         else:
@@ -314,11 +311,10 @@ def get_descendants_tree_html(parent: Persons, tree_html: list, start: bool, br:
         tree_html.append('<ul>')
         for child in children_queryset:
             # print(child.__str__())
-            check_path = f'genealogy/static/genealogy/img/portrait/{
-                child.person_id}.jpg'
+            check_path = f'genealogy/static/genealogy/img/portrait/{child.person_id}.jpg'
             if os_path.exists(check_path):
-                portrait_html = f'<div class="col-md-auto" style="padding: 0px 10px;" align="center"><img src="/static/genealogy/img/portrait/{
-                    child.person_id}.jpg" height="50"></div>'
+                portrait_img = f'<img src="/static/genealogy/img/portrait/{child.person_id}.jpg" height="50">'
+                portrait_html = f'<div class="col-md-auto" style="padding: 0px 10px;" align="center">{portrait_img}</div>'
             else:
                 portrait_html = ''
             if child.gender == 'f':
@@ -343,11 +339,10 @@ def get_descendants_tree_html(parent: Persons, tree_html: list, start: bool, br:
                         spouse = couple.she
                     else:
                         spouse = couple.he
-                    check_path = f'genealogy/static/genealogy/img/portrait/{
-                        spouse.person_id}.jpg'
+                    check_path = f'genealogy/static/genealogy/img/portrait/{spouse.person_id}.jpg'
                     if os_path.exists(check_path):
-                        s_portrait_html = f'<div class="col-md-auto" style="padding: 0px 10px;" align="center"><img src="/static/genealogy/img/portrait/{
-                            spouse.person_id}.jpg" height="50"></div>'
+                        s_portrait_img = f'<img src="/static/genealogy/img/portrait/{spouse.person_id}.jpg" height="50">'
+                        s_portrait_html = f'<div class="col-md-auto" style="padding: 0px 10px;" align="center">{s_portrait_img}</div>'
                     else:
                         s_portrait_html = ''
                     s_gender_class = 'class="spouse"'
@@ -358,8 +353,6 @@ def get_descendants_tree_html(parent: Persons, tree_html: list, start: bool, br:
                     child_html += link_html
                     # child_html += f'<a {s_gender_class} href="personal_card/{spouse.person_id}"><div class="row justify-content-md-center">{
                     #                     s_portrait_html}<div class="col" style="padding: 0px 10px;">{spouse.__str__().replace(' ', br)}</div></div></a>'
-
-
             tree_html.append(child_html)
             get_descendants_tree_html(
                 parent=child,
@@ -394,19 +387,21 @@ def get_ancestors_tree_html(person: Persons, tree_html: list, start: bool, br: s
         tree_html.append('<ul>')
         for parent in parents_queryset:
             # print(parent.__str__())
-            check_path = f'genealogy/static/genealogy/img/portrait/{
-                parent.person_id}.jpg'
+            check_path = f'genealogy/static/genealogy/img/portrait/{parent.person_id}.jpg'
             if os_path.exists(check_path):
-                portrait_html = f'<div class="col-md-auto" style="padding: 0px 10px;" align="center"><img src="/static/genealogy/img/portrait/{
-                    parent.person_id}.jpg" height="50"></div>'
+                portrait_img = f'<img src="/static/genealogy/img/portrait/{parent.person_id}.jpg" height="50">'
+                portrait_html = f'<div class="col-md-auto" style="padding: 0px 10px;" align="center">{portrait_img}</div>'
             else:
                 portrait_html = ''
             if parent.gender == 'f':
                 gender_class = 'class="female"'
             else:
                 gender_class = 'class="male"'
-            parent_html = f'<li><a {gender_class} href="personal_card/{parent.person_id}"><div class="row justify-content-md-center">{
-                portrait_html}<div class="col" style="padding: 0px 10px;">{parent.__str__().replace(' ', br)}</div></div></a>'
+            name_html = f'<div class="col" style="padding: 0px 10px;">{parent.__str__().replace(' ', br)}</div>'
+            row_html = f'<div class="row justify-content-md-center">{portrait_html}{name_html}</div>'
+            link_html = f'<a {gender_class} href="personal_card/{parent.person_id}">{row_html}</a>'
+            parent_html = f'<li>{link_html}'
+            # parent_html = f'<li><a {gender_class} href="personal_card/{parent.person_id}"><div class="row justify-content-md-center">{portrait_html}<div class="col" style="padding: 0px 10px;">{parent.__str__().replace(' ', br)}</div></div></a>'
             tree_html.append(parent_html)
             get_ancestors_tree_html(
                 person=parent,
