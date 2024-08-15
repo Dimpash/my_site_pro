@@ -1,0 +1,118 @@
+{% extends "genealogy/genealogy_wrapper.html" %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block content %}
+    <body>
+        <table class="table table-hover table-striped w-auto table-light"
+               align="center">
+            <tbody>
+                <tr class="table-default">
+                    <td>
+                        <img src="{% static portrait %}" height="200" alt="Портрет">
+                    </td>
+                    <td>
+                        <h3>{{ personal_card }}</h3>
+                        <div>
+                            <button type="button"
+                                    class="btn btn-primary"
+                                    onclick="location.href='../ancestors?person={{ personal_card.person_id }}';">
+                                Показать предков
+                            </button>
+                            {% if children %}
+                                <button type="button"
+                                        class="btn btn-info"
+                                        onclick="location.href='../descendants?person={{ personal_card.person_id }}';">
+                                    Показать потомков
+                                </button>
+                            {% endif %}
+                        </div>
+                    </td>
+                </tr>
+                <tr class="table-default">
+                    <td>Дата рождения</td>
+                    <td>
+                        {% if personal_card.date_of_birth > '' %}
+                            {{ personal_card.date_of_birth }}
+                        {% else %}
+                            ?
+                        {% endif %}
+                    </td>
+                </tr>
+                {% if personal_card.date_of_death > '' %}
+                    <tr class="table-default">
+                        <td>Дата смерти</td>
+                        <td>{{ personal_card.date_of_death }}</td>
+                    </tr>
+                {% endif %}
+                <tr class="table-default">
+                    <td>Отец</td>
+                    <td>
+                        {% if personal_card.father %}
+                            <a href="../personal_card/{{ personal_card.father.person_id }}">{{ personal_card.father }}</a>
+                        {% else %}
+                            нет данных
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr class="table-default">
+                    <td>Мать</td>
+                    <td>
+                        {% if personal_card.mother %}
+                            <a href="../personal_card/{{ personal_card.mother.person_id }}">{{ personal_card.mother }}</a>
+                        {% else %}
+                            нет данных
+                        {% endif %}
+                    </td>
+                </tr>
+                {% if spouses %}
+                    <tr class="table-default">
+                        <td>Супруги</td>
+                        <td>
+                            {% for spouse in spouses %}
+                                <div>
+                                    <a href="../personal_card/{{ spouse.person_id }}">{{ spouse }}</a>
+                                </div>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endif %}
+                {% if children %}
+                    <tr class="table-default">
+                        <td>Дети</td>
+                        <td>
+                            {% for child in children %}
+                                <div>
+                                    <a href="../personal_card/{{ child.person_id }}">{{ child }}</a>
+                                </div>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    {% comment %} <tr class="table-default">
+                        <td></td>
+                        <td>
+                            <button type="button" class="btn btn-info me-2" onclick="location.href='../descendants?person={{ personal_card.person_id }}';">
+                                Все потомки
+                            </button>
+                        </td>
+                    </tr> {% endcomment %}
+                {% endif %}
+                {% if personal_card.note > '' %}
+                    <tr class="table-default">
+                        <td>Примечания</td>
+                        <td>{{ personal_card.note }}</td>
+                    </tr>
+                {% endif %}
+                {% if personal_card.info > '' %}
+                    <tr class="table-default">
+                        <td>Информация</td>
+                        <td>
+                            <p style="max-width: 500px;">{{ personal_card.info }}</p>
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </body>
+{% endblock content %}

@@ -1,0 +1,64 @@
+{% extends "genealogy/genealogy_wrapper.html" %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block content %}
+    <body>
+        <div align="center">
+            <h2>Персоналии</h2>
+        </div>
+        <form method="get" role="search">
+            <div class="container" id="filter_id">
+                <div class="row ml-3 align-items-center">
+                    <div class="col-sm">{% bootstrap_field persons_filter_form.surname layout='horizontal' %}</div>
+                    <div class="col-sm">{% bootstrap_field persons_filter_form.name layout='horizontal' %}</div>
+                    <div class="col-sm">{% bootstrap_field persons_filter_form.patronymic layout='horizontal' %}</div>
+                    <div class="col-md-auto align-self-center">
+                        {% bootstrap_button "Найти" button_type="submit" button_class="btn-primary" %}
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="tableFixHead">
+            <table class="table table-hover table-striped  w-auto table-light"  align="center">
+                <thead class="table-dark" align="center">
+                    <th>ФИО</th>
+                    {% comment %} <th>Девичья фамилия</th> {% endcomment %}
+                    <th>Дата рожд.</th>
+                    <th>Дата см.</th>
+                    <th>Отец</th>
+                    <th>Мать</th>
+                </thead>
+                <tbody>
+                    {% for item in persons_list %}
+                        <tr class="table-default">
+                            <td>
+                                {% comment %} {% with key=item.person_id|stringformat:"i" %} {% endcomment %}
+                                {% with img_url=portraits|get_item:item.person_id %}
+                                {% comment %} {{ portraits.key }}{{ img_url }}{{ item.person_id }}s{{ key }} {% endcomment %}
+                                <img src="{% static img_url %}" 
+                                height="50"
+                                alt="Нет">
+                                <a href="personal_card/{{ item.person_id }}">{{ item.surname }}
+                                    {% if item.maiden_name > '' %}({{ item.maiden_name }}){% endif %}
+                                {{ item.name }} {{ item.patronymic }}</a>
+                                {% endwith %}
+                                {% comment %} {% endwith %} {% endcomment %}
+                            </td>
+                            {% comment %} <td>{{ item.maiden_name }}</td> {% endcomment %}
+                            <td>{{ item.date_of_birth }}</td>
+                            <td>{{ item.date_of_death }}</td>
+                            <td>
+                                {% if item.father %}{{ item.father }}{% endif %}
+                            </td>
+                            <td>
+                                {% if item.mother %}{{ item.mother }}{% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+{% endblock content %}

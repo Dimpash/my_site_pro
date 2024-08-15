@@ -1,0 +1,71 @@
+{% extends "genealogy/genealogy_wrapper.html" %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block content %}
+    <body>
+        <div align="center">
+            <h2 class="text-light">Генеалогия</h2>
+        </div>
+        {% comment %} <button type="button" class="btn" onclick="location.href='persons';" style="background: url(../static/genealogy/img/family-tree.jpg); width:200px; height:150px; background-size: cover">Список всех родственников</button> {% endcomment %}
+        {% comment %} <div align="center">
+            <a href="persons">Список всех родственников</a>
+        </div> {% endcomment %}
+        {% if not user.is_authenticated %}
+            <div class="row" align="center">
+                <h3 style="color:red">ВНИМАНИЕ! Для доступа к разделу Генеалогия необходимо авторизоваться!</h3>
+            </div>
+        {% endif %}
+        <div class="row" align="center">
+            {% comment %} <a href="descendants">Потомки</a> {% endcomment %}
+            <div class="col">
+                <div class="card" style="width: 18rem; margin: 10px;">
+                    <img class="card-img-top"
+                         src="../static/genealogy/img/family-sunset_15.jpg"
+                         alt="Card image cap">
+                    <div class="card-body" align="center">
+                        {% comment %} <h5 class="card-title">Потомки</h5>
+                        <p class="card-text">Просмотр в виде древа всех потомков для выбранной персоны. Супруги пока что не отображаются.</p> {% endcomment %}
+                        <a href="persons" class="btn btn-primary">Список родственников</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem; margin: 10px;">
+                    <img class="card-img-top"
+                         src="../static/genealogy/img/family-tree_15.jpg"
+                         alt="Card image cap">
+                    <div class="card-body" align="center">
+                        {% comment %} <h5 class="card-title">Потомки</h5>
+                        <p class="card-text">Просмотр в виде древа всех потомков для выбранной персоны. Супруги пока что не отображаются.</p> {% endcomment %}
+                        <a href="descendants" class="btn btn-primary">Построить древо потомков</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem; margin: 10px;">
+                    <img class="card-img-top"
+                         src="../static/genealogy/img/voplosheniya-v-rodu_15.jpg"
+                         alt="Card image cap">
+                    <div class="card-body" align="center">
+                        {% comment %} <h5 class="card-title">Потомки</h5>
+                        <p class="card-text">Просмотр в виде древа всех потомков для выбранной персоны. Супруги пока что не отображаются.</p> {% endcomment %}
+                        <a href="ancestors" class="btn btn-primary">Построить древо предков</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% comment %} 
+        <div align="center">
+            <a href="ancestors">Предки</a>
+        </div> {% endcomment %}
+        <div align="center">
+            <a href="genealogy_data_reload">Полная перезагрузка данных</a>
+        </div>
+
+        <div align="center">
+            <a href="login">Login</a>
+        </div>
+    </body>
+{% endblock content %}

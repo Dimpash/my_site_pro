@@ -1,5 +1,5 @@
 {% load static %}
-{% load my_tags %}
+{% load cv_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -76,10 +76,10 @@
         <li><a href="{% url 'cv-start' lang='en' %}#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
         <li><a href="{% url 'cv-start' lang='en' %}#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
         <li><a href="{% url 'cv-start' lang='en' %}#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-        <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>{ Under Development }</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+        <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>My Projects</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
-            <li><a href="#">Dropdown 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <li><a href="{% url 'menu' %}">Genealogy</a></li>
+            {% comment %} <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
                 <li><a href="#">Deep Dropdown 1</a></li>
                 <li><a href="#">Deep Dropdown 2</a></li>
@@ -90,7 +90,7 @@
             </li>
             <li><a href="#">Dropdown 2</a></li>
             <li><a href="#">Dropdown 3</a></li>
-            <li><a href="#">Dropdown 4</a></li>
+            <li><a href="#">Dropdown 4</a></li> {% endcomment %}
           </ul>
         </li>
         <li><a href="{% url 'cv-start' lang='en' %}#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>

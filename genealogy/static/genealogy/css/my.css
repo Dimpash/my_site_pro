@@ -1,0 +1,41 @@
+/* Стиль для закрепленного заголовка таблицы */
+
+.tableFixHead          { overflow: auto; height: 800px; }
+.tableFixHead thead th { position: sticky; top: 0; z-index: 1; }
+
+
+/* Just common table stuff. Really. */
+table  { border-collapse: collapse; width: 100%; }
+th, td { padding: 8px 16px; }
+th     { background:#eee; }
+
+/* .colKey { float: right; color: red; margin-left: auto; 
+    margin-right: 0; } */
+
+body {
+
+    /* background-color: #83C5E9; */
+    /* background: linear-gradient(to right, red, blue); */
+    
+    /* background-image: url('static/genealogy/img/background_6.jpg');
+    background-size: cover; */
+    background-image: url('../img/background_7.jpg'); 
+    background-size: cover;
+    
+    /* background-repeat: repeat-x; */
+    
+    }
+
+.img-btn {
+    width:200px; 
+    height:150px
+}
+
+.my-form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+

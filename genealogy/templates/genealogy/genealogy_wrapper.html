@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet"
+          href="{% static 'genealogy/css/my.css' %}"
+          type="text/css">
+    <link rel="stylesheet"
+          href="{% static 'genealogy/css/signin.css' %}"
+          type="text/css">
+    <title>Генеалогия</title>
+  </head>
+  <header class="p-3 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/"
+           class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2"
+               width="40"
+               height="32"
+               role="img"
+               aria-label="Bootstrap">
+            <use xlink:href="#bootstrap" />
+          </svg>
+        </a>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li>
+            <a href="/" class="nav-link px-2 text-secondary">Домой</a>
+          </li>
+          <li>
+            <a href="menu" class="nav-link px-2 text-white">Меню</a>
+          </li>
+          {% comment %} {% if user.is_authenticated %} {% endcomment %}
+            <li>
+              <a href="persons" class="nav-link px-2 text-white">Персоналии</a>
+            </li>
+          {% comment %} {% endif %} {% endcomment %}
+          {% comment %} {% if user.is_authenticated %} {% endcomment %}
+            <li>
+              <a href="descendants" class="nav-link px-2 text-white">Потомки</a>
+            </li>
+          {% comment %} {% endif %} {% endcomment %}
+          {% comment %} {% if user.is_authenticated %} {% endcomment %}
+            <li>
+              <a href="ancestors" class="nav-link px-2 text-white">Предки</a>
+            </li>
+          {% comment %} {% endif %} {% endcomment %}
+          {% comment %} <li>
+            <a href="#" class="nav-link px-2 text-white">About</a>
+          </li> {% endcomment %}
+        </ul>
+        {% comment %} <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+        </form> {% endcomment %}
+        <div class="text-end">
+          {% if user.is_authenticated %}
+            <button type="button"
+                    class="btn btn-outline-light me-2"
+                    onclick="location.href='logout';">Выйти</button>
+          {% else %}
+            <button type="button"
+                    class="btn btn-warning me-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#loginModal">Войти</button>
+            {% comment %} <button type="button" class="btn btn-warning">Sign-up</button> {% endcomment %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Modal -->
+  {% comment %} {% include "login_core.html" %}  {% endcomment %}
+  <div class="modal fade"
+       id="loginModal"
+       tabindex="-1"
+       aria-labelledby="exampleModalLabel"
+       aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Авторизация</h5>
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {% comment %} width="72" height="57" {% endcomment %}
+          <main class="form-signin">
+            <form method="post" action="{% url 'auth' %}">
+              {% csrf_token %}
+              <img class="mb-4"
+                   src="{% static 'genealogy/img/auth_1.jpg' %}"
+                   alt=""
+                   width="300">
+              <h1 class="h4 mb-3 fw-normal">Пожалуйста авторизуйтесь</h1>
+              <div class="form-floating">
+                <input type="username"
+                       class="form-control"
+                       name="username"
+                       id="id_username"
+                       placeholder="UserName">
+                <label for="floatingInput">Логин</label>
+              </div>
+              <div class="form-floating">
+                <input type="password"
+                       class="form-control"
+                       name="password"
+                       id="id_password"
+                       placeholder="Password">
+                <label for="floatingPassword">Пароль</label>
+              </div>
+              <button class="w-100 btn btn-lg btn-primary" type="submit">Войти</button>
+            </form>
+          </main>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% block content %}
+  {% endblock content %}
+</html>

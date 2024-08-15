@@ -1,0 +1,60 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!-- Modal -->
+{% comment %} <div 
+class="modal fade"
+id="loginModal"
+tabindex="-1"
+aria-labelledby="exampleModalLabel"
+aria-hidden="false"
+> {% endcomment %}
+<div>
+<div class="modal-dialog">
+<div class="modal-content">
+ <div class="modal-header">
+   <h5 class="modal-title" id="exampleModalLabel">Авторизация</h5>
+   <button type="button"
+           class="btn-close"
+           data-bs-dismiss="modal"
+           aria-label="Close"
+           onclick="history.go(-1)"></button>
+ </div>
+ <div class="modal-body">
+   {% comment %} width="72" height="57" {% endcomment %}
+   <main class="form-signin" style="width: 100%;max-width: 330px;padding: 15px;margin: auto;">
+     <form method="post" action="{% url 'auth' %}">
+       {% csrf_token %}
+       <img class="mb-4"
+            src="{% static 'genealogy/img/auth_1.jpg' %}"
+            alt=""
+            width="300">
+       <h1 class="h4 mb-3 fw-normal">Пожалуйста авторизуйтесь</h1>
+       <div class="form-floating">
+         <input type="username"
+                class="form-control"
+                name="username"
+                id="id_username"
+                placeholder="UserName">
+         <label for="floatingInput">Логин</label>
+       </div>
+       <div class="form-floating">
+         <input type="password"
+                class="form-control"
+                name="password"
+                id="id_password"
+                placeholder="Password">
+         <label for="floatingPassword">Пароль</label>
+       </div>
+       <button class="w-100 btn btn-lg btn-primary" type="submit">Войти</button>
+     </form>
+   </main>
+ </div>
+ <div class="modal-footer">
+   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="history.go(-1)">Close</button>
+ </div>
+</div>
+</div>
+</div>

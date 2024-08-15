@@ -1,0 +1,55 @@
+{% extends "genealogy/genealogy_wrapper.html" %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block content %}
+    <link rel="stylesheet" href="{% static tree_css %}" type="text/css">
+    <body>
+        <form method="get" role="search" name="select_person_form">
+            <div class="container" id="filter_id">
+                <div class="row ml-3 align-items-center">
+                    <div class="row g-2">
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <select class="form-select"
+                                        name="view_type"
+                                        id="id_view_type"
+                                        aria-label="view_type select">
+                                    {% comment %} <option selected value="0">-----------</option> {% endcomment %}
+                                    {% for item in select_person_form.view_type.field.choices %}
+                                        <option {% if item.0 == view_type_id %}selected{% endif %} value={{ item.0 }}>{{ item.1 }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                <label for="personSelectGrid">Тип древа</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <select class="form-select"
+                                        name="person"
+                                        id="id_person"
+                                        aria-label="Person select">
+                                    {% for item in select_person_form.person.field.queryset %}
+                                        <option {% if item.person_id == person_id %}selected{% endif %} value={{ item.person_id }}>{{ item }}
+                                        </option>
+                                    {% endfor %}
+                                    {% comment %} <option value="2">Two</option>
+                                    <option value="3">Three</option> {% endcomment %}
+                                </select>
+                                <label for="personSelectGrid">Выберите персону</label>
+                            </div>
+                        </div>
+                        <div class="col-md-auto align-self-center">
+                            {% bootstrap_button "Найти предков" button_type="submit" button_class="btn-dark" %}
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </form>
+        {% autoescape off %}
+            {{ tree_html }}
+        {% endautoescape %}
+    </body>
+{% endblock content %}
