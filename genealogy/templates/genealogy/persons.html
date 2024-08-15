@@ -5,22 +5,41 @@
 {% bootstrap_javascript %}
 {% block content %}
     <body>
-        <div align="center">
+        {% comment %} <div align="center">
             <h2>Персоналии</h2>
-        </div>
-        <form method="get" role="search">
+        </div> {% endcomment %}
+
+        <form method="get" role="search" name="person_filter_form">
             <div class="container" id="filter_id">
                 <div class="row ml-3 align-items-center">
-                    <div class="col-sm">{% bootstrap_field persons_filter_form.surname layout='horizontal' %}</div>
-                    <div class="col-sm">{% bootstrap_field persons_filter_form.name layout='horizontal' %}</div>
-                    <div class="col-sm">{% bootstrap_field persons_filter_form.patronymic layout='horizontal' %}</div>
-                    <div class="col-md-auto align-self-center">
-                        {% bootstrap_button "Найти" button_type="submit" button_class="btn-primary" %}
+                    <div class="row g-2">
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name="surname" id="id_surname" value="{{ init.surname }}">
+                                <label for="surname">Фамилия</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name="name" id="id_name" value="{{ init.name }}" aria-describedby="nameHelp">
+                                <label for="name">Имя</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name="patronymic" id="id_patronymic" value="{{ init.patronymic }}">
+                                <label for="patronymic">Отчество</label>
+                            </div>
+                        </div>
+                        <div class="col-md-auto align-self-center">
+                            {% bootstrap_button "Применить фильтр" button_type="submit" button_class="btn-primary" %}
+                        </div> 
                     </div>
                 </div>
             </div>
         </form>
-        <div class="tableFixHead">
+
+        <div class="tableFixHead" style="margin-top: 12px">
             <table class="table table-hover table-striped  w-auto table-light"  align="center">
                 <thead class="table-dark" align="center">
                     <th>ФИО</th>

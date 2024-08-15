@@ -18,15 +18,13 @@ from pprint import pprint
 #  Render start page
 ########################################
 def genealogy_menu(request):
-    # if message:
-    #     print('1111111111111111111111111111111')
     # context = {}
     # if request.user.is_authenticated:
     #     context['login_modal'] = 'fade'
     # else:
     #     context['login_modal'] = 'show'
     # return render(request, 'genealogy/genealogy_index.html')
-    return render(request, 'genealogy/genealogy_index.html')
+    return render(request, 'genealogy/genealogy_index.html', {'func': 'menu'})
 
 
 def login_view(request):
@@ -166,12 +164,18 @@ class PersonsListView(LoginRequiredMixin, ListView):
         if 'name' in self.request.GET:
             self.name = self.request.GET['name']
 
+        if 'patronymic' in self.request.GET:
+            self.patronymic = self.request.GET['patronymic']
+
         fltr = (Q(status__gt=0))  # Condition for Status
         if self.surname > '':
             fltr = fltr & (Q(surname=self.surname) | Q(
                 maiden_name=self.surname))  # Condition for Surname
         if self.name > '':
             fltr = fltr & (Q(name=self.name))  # Condition for Name
+
+        if self.patronymic > '':
+            fltr = fltr & (Q(patronymic=self.patronymic))  # Condition for Patronymic
 
         self.queryset = Persons.objects.filter(fltr).order_by(
             'surname', 'name', 'patronymic').select_related('father', 'mother')
@@ -200,6 +204,8 @@ class PersonsListView(LoginRequiredMixin, ListView):
 
         context['persons_filter_form'] = PersonsFilterForm(init)
         context['portraits'] = portraits
+        context['init'] = init
+        context['func'] = 'persons'
 
         return context
 
@@ -279,22 +285,22 @@ class PersonalCardDetailView(LoginRequiredMixin, DetailView):
 #             get_children_tree_list(parent=child, children=level, lvl=next_lvl)
 #         children.append(level)
 
-def get_children_tree_list(parent: Persons, children: list, lvl: int, start: bool):
-    if start:
-        children_queryset = [parent]
-    else:
-        fltr = Q(status__gt=0) & (Q(father__person_id=parent.person_id)
-                                  | Q(mother__person_id=parent.person_id))
-        children_queryset = Persons.objects.filter(fltr)
+# def get_children_tree_list(parent: Persons, children: list, lvl: int, start: bool):
+#     if start:
+#         children_queryset = [parent]
+#     else:
+#         fltr = Q(status__gt=0) & (Q(father__person_id=parent.person_id)
+#                                   | Q(mother__person_id=parent.person_id))
+#         children_queryset = Persons.objects.filter(fltr)
 
-    if children_queryset:
-        # level = []
+#     if children_queryset:
+#         # level = []
 
-        next_lvl = lvl + 1
-        for child in children_queryset:
-            children.append([next_lvl, child, child.__str__()])
-            get_children_tree_list(
-                parent=child, children=children, lvl=next_lvl, start=False)
+#         next_lvl = lvl + 1
+#         for child in children_queryset:
+#             children.append([next_lvl, child, child.__str__()])
+#             get_children_tree_list(
+#                 parent=child, children=children, lvl=next_lvl, start=False)
         # children.append(level)
 
 
@@ -499,6 +505,7 @@ def descendants(request):
                    'person_id': person_id,
                    'view_type_id': view_type_id,
                    'show_spouses_id': show_spouses_id,
+                   'func': 'descendants'
                    }
                   )
 
@@ -557,5 +564,6 @@ def ancestors(request):
                    #    'children': children_tree_list,
                    'person_id': person_id,
                    'view_type_id': view_type_id,
+                   'func': 'descendants'
                    }
                   )

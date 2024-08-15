@@ -60,12 +60,14 @@
         <div align="center">
             <a href="ancestors">Предки</a>
         </div> {% endcomment %}
+        {% if user.username == 'boss' %}
         <div align="center">
             <a href="genealogy_data_reload">Полная перезагрузка данных</a>
         </div>
+        {% endif %}
 
-        <div align="center">
+        {% comment %} <div align="center">
             <a href="login">Login</a>
-        </div>
+        </div> {% endcomment %}
     </body>
 {% endblock content %}

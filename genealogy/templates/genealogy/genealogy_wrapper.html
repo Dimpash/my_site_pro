@@ -30,24 +30,24 @@
         </a>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li>
-            <a href="/" class="nav-link px-2 text-secondary">Домой</a>
+            <a href="/" class="nav-link px-2 text-white">Домой</a>
           </li>
           <li>
-            <a href="menu" class="nav-link px-2 text-white">Меню</a>
+            <a href="menu" class="nav-link px-2 {% if func == 'menu' %} text-secondary {% else %} text-white {% endif %}">Меню</a>
           </li>
           {% comment %} {% if user.is_authenticated %} {% endcomment %}
             <li>
-              <a href="persons" class="nav-link px-2 text-white">Персоналии</a>
+              <a href="persons" class="nav-link px-2 {% if func == 'persons' %} text-secondary {% else %} text-white {% endif %}">Персоналии</a>
             </li>
           {% comment %} {% endif %} {% endcomment %}
           {% comment %} {% if user.is_authenticated %} {% endcomment %}
             <li>
-              <a href="descendants" class="nav-link px-2 text-white">Потомки</a>
+              <a href="descendants" class="nav-link px-2 {% if func == 'descendants' %} text-secondary {% else %} text-white {% endif %}">Потомки</a>
             </li>
           {% comment %} {% endif %} {% endcomment %}
           {% comment %} {% if user.is_authenticated %} {% endcomment %}
             <li>
-              <a href="ancestors" class="nav-link px-2 text-white">Предки</a>
+              <a href="ancestors" class="nav-link px-2 {% if func == 'ancestors' %} text-secondary {% else %} text-white {% endif %}">Предки</a>
             </li>
           {% comment %} {% endif %} {% endcomment %}
           {% comment %} <li>
