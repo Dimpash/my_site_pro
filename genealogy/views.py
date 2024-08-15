@@ -322,7 +322,7 @@ def get_descendants_tree_html(parent: Persons, tree_html: list, start: bool, br:
             else:
                 gender_class = 'class="male"'
             # Формируем HTML для потомка
-            name_html = f'<div class="col" style="padding: 0px 10px;">{child.__str__().replace(' ', br)}</div>'
+            name_html = f'<div class="col" style="padding: 0px 10px;">{child.__str__().replace(" ", br)}</div>'
             row_html = f'<div class="row justify-content-md-center">{portrait_html}{name_html}</div>'
             link_html = f'<a {gender_class} href="personal_card/{child.person_id}">{row_html}</a>'
             child_html = f'<li>{link_html}'
@@ -347,7 +347,7 @@ def get_descendants_tree_html(parent: Persons, tree_html: list, start: bool, br:
                         s_portrait_html = ''
                     s_gender_class = 'class="spouse"'
 
-                    name_html = f'<div class="col" style="padding: 0px 10px;">{spouse.__str__().replace(' ', br)}</div>'
+                    name_html = f'<div class="col" style="padding: 0px 10px;">{spouse.__str__().replace(" ", br)}</div>'
                     row_html = f'<div class="row justify-content-md-center">{s_portrait_html}{name_html}</div>'
                     link_html = f'<a {s_gender_class} href="personal_card/{spouse.person_id}">{row_html}</a>'
                     child_html += link_html
@@ -397,7 +397,7 @@ def get_ancestors_tree_html(person: Persons, tree_html: list, start: bool, br: s
                 gender_class = 'class="female"'
             else:
                 gender_class = 'class="male"'
-            name_html = f'<div class="col" style="padding: 0px 10px;">{parent.__str__().replace(' ', br)}</div>'
+            name_html = f'<div class="col" style="padding: 0px 10px;">{parent.__str__().replace(" ", br)}</div>'
             row_html = f'<div class="row justify-content-md-center">{portrait_html}{name_html}</div>'
             link_html = f'<a {gender_class} href="personal_card/{parent.person_id}">{row_html}</a>'
             parent_html = f'<li>{link_html}'
