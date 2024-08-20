@@ -424,12 +424,12 @@ def get_ancestors_tree_html(person: Persons, tree_html: list, start: bool, br: s
 ########################################
 @login_required
 def descendants(request):
-    if 'view_type' in request.GET and request.GET['view_type'] == '0':
-        view_type = 0
+    if 'view_type' in request.GET and request.GET['view_type'] == '1':
+        view_type = 1
         br = '<br>'
         tree_css = 'genealogy/css/tree_v.css'
     else:
-        view_type = 1
+        view_type = 0
         br = ' '
         tree_css = 'genealogy/css/tree_h.css'
 
@@ -515,12 +515,12 @@ def descendants(request):
 ########################################
 @login_required
 def ancestors(request):
-    if 'view_type' in request.GET and request.GET['view_type'] == '0':
-        view_type = 0
+    if 'view_type' in request.GET and request.GET['view_type'] == '1':
+        view_type = 1
         br = '<br>'
         tree_css = 'genealogy/css/tree_v.css'
     else:
-        view_type = 1
+        view_type = 0
         br = ' '
         tree_css = 'genealogy/css/tree_h.css'
 

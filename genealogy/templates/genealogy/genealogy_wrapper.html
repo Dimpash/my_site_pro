@@ -7,6 +7,7 @@
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet"
           href="{% static 'genealogy/css/my.css' %}"
           type="text/css">
@@ -30,7 +31,7 @@
         </a>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li>
-            <a href="/" class="nav-link px-2 text-white">Домой</a>
+            <a href="/ru" class="nav-link px-2 text-white">Домой</a>
           </li>
           <li>
             <a href="menu" class="nav-link px-2 {% if func == 'menu' %} text-secondary {% else %} text-white {% endif %}">Меню</a>
@@ -58,6 +59,10 @@
           <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
         </form> {% endcomment %}
         <div class="text-end">
+          {% if user.is_authenticated %}
+          <i class="bi bi-person" style="font-size: 1.0rem;"></i>
+          <span> {{ user.username }}</span>
+          {% endif %}
           {% if user.is_authenticated %}
             <button type="button"
                     class="btn btn-outline-light me-2"
