@@ -27,4 +27,119 @@ body {
     margin: auto;
 }
 
+.card {
+    width: 30rem; 
+    margin: 10px;
+}
 
+/* Добавьте эти стили к существующим */
+
+.card {
+    width: 30rem; 
+    margin: 10px;
+    /* Новые стили для карточек */
+    background: rgba(40, 45, 50, 0.95); /* Темный полупрозрачный фон */
+    border-radius: 15px;
+    border: 2px solid rgba(160, 130, 80, 0.4); /* Теплая золотистая рамка */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(200, 150, 50, 0.1) inset;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(220, 170, 70, 0.15) inset;
+    background: rgba(45, 50, 55, 0.98);
+}
+
+.card-img-top {
+    height: 315px;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    opacity: 1;
+}
+
+.card-body {
+    background: linear-gradient(
+        to bottom,
+        rgba(25, 30, 35, 0.9),
+        rgba(20, 25, 30, 0.95)
+    );
+    padding: 1.5rem;
+    border-top: 1px solid rgba(120, 90, 40, 0.2);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+/* Заголовки карточек (если они понадобятся в будущем) */
+.card-title {
+    color: #F0DFB5; /* Светлый золотистый */
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.card-text {
+    color: #D0D9E0; /* Светло-серый с голубым оттенком */
+}
+
+/* Стилизация кнопок внутри карточек для гармонии */
+.card .btn {
+    font-weight: 600;
+    padding: 0.6rem 1.8rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.95rem;
+}
+
+.card .btn-warning {
+    background: linear-gradient(135deg, #FFD166, #F9A826);
+    color: #2C1810;
+    box-shadow: 0 4px 10px rgba(249, 168, 38, 0.3);
+}
+
+.card .btn-warning:hover {
+    background: linear-gradient(135deg, #FFDC73, #FFB347);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(249, 168, 38, 0.4);
+}
+
+.card .btn-primary {
+    background: linear-gradient(135deg, #6C8EA4, #4A6FA5);
+    color: white;
+    box-shadow: 0 4px 10px rgba(74, 111, 165, 0.3);
+}
+
+.card .btn-primary:hover {
+    background: linear-gradient(135deg, #7DA0B6, #5B7FB5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(74, 111, 165, 0.4);
+}
+
+/* Эффект свечения для кнопок при наведении на карточку */
+.card:hover .btn {
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .card .btn {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
