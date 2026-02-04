@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Email Provider Checker</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 40px;
+      background: #fafafa;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 8px;
+      width: 300px;
+      font-size: 15px;
+    }
+
+    button {
+      padding: 8px 14px;
+      font-size: 15px;
+      margin-left: 6px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 30px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      max-width: 620px;
+    }
+
+    .provider {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .provider.google {
+      color: #1a73e8;
+    }
+
+    .provider.microsoft {
+      color: #0f6cbd;
+    }
+
+    .provider.unknown {
+      color: #555;
+    }
+
+    .meta {
+      font-size: 14px;
+      color: #666;
+      margin-top: 14px;
+    }
+
+    .meta p {
+      margin: 4px 0;
+    }
+
+    ul {
+      margin: 6px 0 0 18px;
+      padding: 0;
+    }
+
+    .error {
+      color: #c00;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Email Provider Checker</h2>
+
+<form method="post">
+  {% csrf_token %}
+  <input
+    type="text"
+    name="value"
+    placeholder="user@domain.com or domain.com"
+    value="{{ input|default:'' }}"
+    required
+  >
+  <button type="submit">Verify</button>
+</form>
+
+{% if error %}
+  <p class="error">{{ error }}</p>
+{% endif %}
+
+{% if result %}
+  <div class="result">
+
+    {% if "Google" in result.provider %}
+      <div class="provider google">{{ result.provider }}</div>
+    {% elif "Microsoft" in result.provider %}
+      <div class="provider microsoft">{{ result.provider }}</div>
+    {% else %}
+      <div class="provider unknown">{{ result.provider }}</div>
+    {% endif %}
+
+    <div class="meta">
+      <p><strong>Domain:</strong> {{ domain }}</p>
+      <p><strong>Detection signal:</strong> {{ result.signal }}</p>
+
+      {% if result.mx_records %}
+        <p><strong>MX records:</strong></p>
+        <ul>
+          {% for mx in result.mx_records %}
+            <li>{{ mx }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+
+  </div>
+{% endif %}
+
+</body>
+</html>

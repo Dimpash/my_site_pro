@@ -7,3 +7,5 @@ whitenoise==6.7.0
 python-dotenv==1.0.1
 uvicorn==0.30.4
 django-bootstrap-v5
+# For email detector
+dnspython

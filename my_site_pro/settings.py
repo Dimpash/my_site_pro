@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cv',
     'genealogy',
-    'bootstrap5'
+    'bootstrap5',
+    'mail_detector'
 ]
 
 MIDDLEWARE = [
