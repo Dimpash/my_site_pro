@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'cv',
     'genealogy',
     'bootstrap5',
-    'mail_detector'
+    'mail_detector',
+    'sandbox',
 ]
 
 MIDDLEWARE = [

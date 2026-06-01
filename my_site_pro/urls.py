@@ -23,4 +23,5 @@ urlpatterns = [
     # path('', include(('genealogy.urls', 'genealogy'), namespace='genealogy')),
     path('genealogy/', include('genealogy.urls')),
     path('demo/', include('mail_detector.urls')),
+    path('sandbox/', include('sandbox.urls')),
 ]
