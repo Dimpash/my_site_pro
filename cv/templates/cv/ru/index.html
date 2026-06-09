@@ -21,10 +21,10 @@
     <div class="container section-title" data-aos="fade-up">
       <h2>Обо мне</h2>
       <p>
-        Опытный руководитель коллектива разработчиков и группы технического обеспечения. 
+        Опытный руководитель команды разработчиков и группы технического обеспечения. 
         20+ лет опыта полного цикла разработки. 
-        Навыки подготовки технических заданий, общения с заказчиком, проектирования БД (MS SQL), 
-        управления разработкой (Delphi, Python, Django, 1С).
+        Навыки проектирования информационных систем, общения с заказчиком,  
+        управления разработкой (Python, Django, Delphi, 1С).
       </p>
     </div>
     <!-- End Section Title -->
@@ -38,7 +38,9 @@
         <div class="col-lg-8 content">
           <h2>Team leader &amp; Разработчик.</h2>
           <p class="fst-italic py-3">
-            Полный цикл разработки разработки, внедрения и сопровождения программного обеспечения для задач энергоснабжения. Организация материального обеспечения и технической поддержки.
+            Опытный руководитель команды разработчиков и группы технического обеспечения. 
+            20+ лет опыта полного цикла разработки. 
+            Навыки проектирования информационных систем, общения с заказчиком, управления разработкой (Python, Django, Delphi, 1С). 
           </p>
           <div class="row">
             <div class="col-lg-6">
@@ -52,7 +54,7 @@
                   <i class="bi bi-chevron-right"></i> <strong>Город:</strong> <span>Витебск, Беларусь</span>
                 </li>
                 <li>
-                  <i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>mitya.p.76@gmail.com</span>
+                  <i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>prointech.p@gmail.com</span>
                 </li>
               </ul>
             </div>
@@ -142,10 +144,10 @@
     <div class="container section-title" data-aos="fade-up">
       <h2>Skills</h2>
       <p>
-        Высокие навыки в подготовке технических спецификаций, коммуникации с клиентами, проектирования баз данных, 
-        руководства разработкой программных продуктов.
+        Высокие навыки в проектировании информационных систем, подготовке технических спецификаций, коммуникации с клиентами, проектировании баз данных, 
+        руководстве командой.
       </p>
-      <p>Ключевые технические навыки: Python, Django, Delphi, MS SQL, Firebird, SVN, Git, MS Office.</p>
+      <p>Ключевые технические навыки: Python, Django, GoogleApsScript, Delphi, MS SQL, Postgres, Firebird, Git, SVN, MS Office.</p>
     </div>
     <!-- End Section Title -->
     <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -229,7 +231,7 @@
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
       <h2>Резюме</h2>
-      <p>Опытный лидер команды разработчиков и команды технической поддержки.</p>
+      <p>Опытный лидер команды, архитектор систем, разработчик.</p>
     </div>
     <!-- End Section Title -->
     <div class="container">
@@ -239,12 +241,12 @@
           <div class="resume-item pb-0">
             <h4>Дмитрий Пашкевич</h4>
             <p>
-              <em>Опытный лидер команды разработчиков и команды технической поддержки. Квалифицированный разработчик.</em>
+              <em>Опытный лидер команды, архитектор систем, разработчик.</em>
             </p>
             <ul>
               <li>Витебск, Беларусь</li>
               <!-- <li>(123) 456-7891</li> -->
-              <li>mitya.p.76@gmail.com</li>
+              <li>prointech.p@gmail.com</li>
             </ul>
           </div>
           <!-- Edn Resume Item -->
@@ -256,8 +258,9 @@
               <em>Витебский государственный университет им. П.М.Машерова</em>
             </p>
             <p>
-              Степень магистра физики дает знания и навыки, применимые не только в физике и математике, но и информационных технологиях. 
-              Она предоставляет превосходный опыт применения абстрактного математического аппарата к реальным жизненным процессам.
+              Степень магистра физики дает превосходные знания и навыки по применению абстрактного математического аппарата 
+              к реальным жизненным процессам, что бесценно в сфере информационных технологий.
+              
             </p>
           </div>
           <!-- Edn Resume Item -->
@@ -273,6 +276,19 @@
         </div>
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
           <h3 class="resume-title">Professional Experience</h3>
+          <div class="resume-item">
+            <h4>Freelance</h4>
+            <h5>2024 - настояще время</h5>
+            <p>
+              <em>Фрилансер</em>
+            </p>
+            <ul>
+              <li>Полный цикл разработки, внедрения и сопровождения программного обеспечения для широкого круга задач.</li>
+              <li>Проектирование информационных систем.</li>
+              <li>Внедрение систем искусственного интеллекта.</li>
+              <li>Решение реальных интересных жизненных задач программными средствами.</li>
+            </ul>
+          </div>
           <div class="resume-item">
             <h4>Начальник отдела ИТ</h4>
             <h5>2010 - 2024</h5>
@@ -342,7 +358,7 @@
              data-aos="fade-up"
              data-aos-delay="200">
           {% for key, value in portfolio_items.items %}
-            {% with img_url='cv/img/portfolio/'|add:key|add:'/'|add:key|add:'.jpg' %}
+            {% with img_url=value.img_path %}
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ value.Filter|lower }}">
                 <div class="portfolio-content h-100">
                   <img src="{% static img_url %}" class="img-fluid" alt="">
@@ -409,7 +425,7 @@
               <a href="service-details.html" class="stretched-link">Базы данных</a>
             </h4>
             <p class="description">
-              Проектирование и оптимизация баз данных MS SQL Server
+              Проектирование и оптимизация баз данных MS SQL Server, Postgres, MySQL, MariaDB 
             </p>
           </div>
         </div>
@@ -426,6 +442,21 @@
             </h4>
             <p class="description">
               Аналитика данных и бизнес анализ в сфере ИТ. Подготовка технических заданий.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 service-item d-flex"
+             data-aos="fade-up"
+             data-aos-delay="300">
+          <div class="icon flex-shrink-0">
+            <i class="bi bi-diagram-3"></i>
+          </div>
+          <div>
+            <h4 class="title">
+              <a href="service-details.html" class="stretched-link">Проектирование информационных систем</a>
+            </h4>
+            <p class="description">
+              Проектирование масштабируемой архитектуры, интеграция BN-сервисов, автоматизация бизнес-процессов.
             </p>
           </div>
         </div>
@@ -640,7 +671,14 @@
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Email</h3>
-                <p>mitya.p.76@gmail.com</p>
+                <p>prointech.p@gmail.com</p>
+              </div>
+            </div>
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-telegram flex-shrink-0"></i>
+              <div>
+                <h3>Telegram</h3>
+                <p>@Prointech_p</p>
               </div>
             </div>
             <!-- End Info Item -->

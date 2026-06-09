@@ -21,9 +21,8 @@
     <div class="container section-title" data-aos="fade-up">
       <h2>About</h2>
       <p>
-        Experienced leader of the development team and technical support team. 20+ years of full development cycle
-        experience. Skills in preparing technical specifications, communicating with customers, database design (MS SQL),
-        software development management (Python, Django, Delphi, 1C)
+        Experienced development team and technical support leader. 20+ years of full-cycle development experience. 
+        Skills in information system design, client communication, and development management (Python, Django, Delphi, 1C).
       </p>
     </div>
     <!-- End Section Title -->
@@ -52,7 +51,7 @@
                   <i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Vitebsk, Belarus</span>
                 </li>
                 <li>
-                  <i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>mitya.p.76@gmail.com</span>
+                  <i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>prointech.p@gmail.com</span>
                 </li>
               </ul>
             </div>
@@ -243,7 +242,7 @@
             <ul>
               <li>Vitebsk, Belarus</li>
               <!-- <li>(123) 456-7891</li> -->
-              <li>mitya.p.76@gmail.com</li>
+              <li>prointech.p@gmail.com</li>
             </ul>
           </div>
           <!-- Edn Resume Item -->
@@ -272,6 +271,20 @@
         </div>
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
           <h3 class="resume-title">Professional Experience</h3>
+          <div class="resume-item">
+            <h4>Freelance</h4>
+            <h5>2024 - Present</h5>
+            <p>
+              <em>Freelancer</em>
+            </p>
+            <ul>
+              <li>Full-cycle development, implementation, and maintenance of software for a wide range of tasks.</li>
+              <li>Information systems design.</li>
+              <li>Artificial intelligence system implementation.</li>
+              <li>Solving real-world challenges with software.</li>
+            </ul>
+          </div>
+          <!-- Edn Resume Item -->
           <div class="resume-item">
             <h4>Head of IT</h4>
             <h5>2010 - 2024</h5>
@@ -341,7 +354,7 @@
              data-aos="fade-up"
              data-aos-delay="200">
           {% for key, value in portfolio_items.items %}
-            {% with img_url='cv/img/portfolio/'|add:key|add:'/'|add:key|add:'.jpg' %}
+            {% with img_url=value.img_path %}
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ value.Filter|lower }}">
                 <div class="portfolio-content h-100">
                   <img src="{% static img_url %}" class="img-fluid" alt="">
@@ -633,7 +646,14 @@
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Email Us</h3>
-                <p>mitya.p.76@gmail.com</p>
+                <p>prointech.p@gmail.com</p>
+              </div>
+            </div>
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-telegram flex-shrink-0"></i>
+              <div>
+                <h3>Telegram</h3>
+                <p>@Prointech_p</p>
               </div>
             </div>
             <!-- End Info Item -->

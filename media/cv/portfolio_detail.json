@@ -86,5 +86,49 @@
             "en": "A desktop application that automates settlements with consumers of thermal energy, maintaining contractual work.\n Development environment: Delphi, MS SQL Server.",
             "ru": "Десктопное приложение, автоматизирующее расчеты с потребителями тепловой энергии, ведение договорной работы.\n Среда разработки: Delphi, MS SQL Server."
         }
+    },
+    "site_demo": {
+        "Name": {
+            "en": "Website demo",
+            "ru": "Демо сайта"
+        },
+        "Category": "Web app, Databases",
+        "Client": {
+            "en": "Freelance",
+            "ru": "Freelance"
+        },
+        "Period": "2026",
+        "URL": "https://prointech.pythonanywhere.com",
+        "Filter": "WEB",
+        "Note": {
+            "en": "Website Demo.",
+            "ru": "Демо версия сайта."
+        },
+        "Description": {
+            "en": "A picture is worth a thousand words.\n A small demo of the website with a dashboard is available at the link above.\n Login: RVT, password: RVT-123456\n Development environment: Python, Django, SQLite.",
+            "ru": "Лучше один раз увидеть, чем сто раз услышать.\n Небольшое демо сайта с дашбордом доступно по ссылке выше.\n Логин: RVT, пароль: RVT-123456\n Среда разработки: Python, Django, SQLite."
+        }
+    },
+    "kron": {
+        "Name": {
+            "en": "Kron",
+            "ru": "Крон"
+        },
+        "Category": "Web app, Databases",
+        "Client": {
+            "en": "Kron Group of Companies",
+            "ru": "Группа компаний \"Крон\""
+        },
+        "Period": "2026",
+        "URL": "",
+        "Filter": "WEB",
+        "Note": {
+            "en": "Utility meter survey system.",
+            "ru": "Система опроса счётчиков коммунальных ресурсов."
+        },
+        "Description": {
+            "en": "A system for managing remote readings of utility metering devices.\n Developed by order of the Kron Group of Companies, Penza.\n Development environment: Python, Django, Vue.js, MariaDB.",
+            "ru": "Система управления дистанционным съемом проказаний приборов учета коммунальных ресурсов.\n Разработано по заказу ГК \"Крон\" г. Пенза.\n Среда разработки: Python, Django, Vue.js, MariaDB."
+        }
     }
 }

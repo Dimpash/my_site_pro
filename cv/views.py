@@ -1,10 +1,14 @@
+from django.conf import settings
+from django.contrib.staticfiles.storage import staticfiles_storage
 from django.shortcuts import render, redirect
 from datetime import datetime as dt
 from dateutil.relativedelta import relativedelta
 import json
+import os
 from os import listdir
 from os.path import isfile, join
 
+IMG_EXTENSIONS = ['.webp', '.jpg', '.jpeg', '.png']
 
 # data = {
     #     'app1': {
@@ -35,12 +39,35 @@ def cv_start(request, lang='en'):
     for key, value in portfolio_items.items():
         if not value['Filter'] in filters:
             filters.append(value['Filter'])
+
+        base_path = f'cv/img/portfolio/{key}/{key}'
+        found_ext = '.jpg'  # по умолчанию
+        for ext in IMG_EXTENSIONS:
+            # Проверяем существует ли файл в статике
+            if staticfiles_storage.exists(base_path + ext):
+                found_ext = ext
+                break
+        
+        portfolio_items[key]['img_path'] = base_path + found_ext
+
+        # for ext in IMG_EXTENSIONS:
+        #     # Полный путь для проверки
+        #     full_path = os.path.join(settings.STATIC_ROOT, base_path + ext)
+        #     if os.path.exists(full_path):
+        #         img_ext = ext
+        #         break
+        
+        # # Если нашли расширение - сохраняем, иначе используем .jpg по умолчанию
+        # portfolio_items[key]['img_ext'] = img_ext or '.jpg'
+        
     filters.sort()
     context = {
         'my_age': relativedelta(dt.today(), dt.strptime('21.09.1976', '%d.%m.%Y')).years,
         'portfolio_items': portfolio_items,
         'filters': filters
         }
+    from pprint import pprint
+    pprint(context)
     return render(request, f'cv/{lang}/index.html', context=context)
 
 
