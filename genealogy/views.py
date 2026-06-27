@@ -78,9 +78,24 @@ def genealogy_data_reload(request):
         person.save()
 
     # Select new data
-    with open("media/genealogy/Genealogy.csv", 'r') as f:
-        dict_reader = DictReader(f, delimiter=';')
-        list_of_dict = list(dict_reader)
+    # Пробуем разные кодировки
+    encodings = ['utf-8-sig', 'cp1251', 'windows-1251', 'latin-1']
+    
+    for encoding in encodings:
+        try:
+            with open("media/genealogy/Genealogy.csv", 'r', encoding=encoding) as f:
+                dict_reader = DictReader(f, delimiter=';')
+                list_of_dict = list(dict_reader)
+                break  # Если успешно прочитали, выходим из цикла
+        except UnicodeDecodeError:
+            continue
+    else:
+        # Если ни одна кодировка не подошла
+        return HttpResponse('Ошибка: не удалось определить кодировку файла.', status=400)
+    
+    # with open("media/genealogy/Genealogy.csv", 'r') as f:
+    #     dict_reader = DictReader(f, delimiter=';')
+    #     list_of_dict = list(dict_reader)
 
     # Save new basic data
     for item in list_of_dict:
