@@ -15,42 +15,56 @@ import os
 import dj_database_url
 from dotenv import load_dotenv
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
+# === BASE PATH ===
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env_path = load_dotenv(os.path.join(BASE_DIR, '.env'))
 load_dotenv(env_path)
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
+# === SECURITY ===
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', 'SECRET_KEY_NOT_FOUND') 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG') != 'False'
 
-
 ALLOWED_HOSTS = ['127.0.0.1', 'dzmitry76.onrender.com', 'dzmitry.onrender.com']
 CSRF_TRUSTED_ORIGINS = ['https://dzmitry76.onrender.com', 'https://dzmitry.onrender.com']
 
 
+# === INSTALLED APPS ===
 
-# Application definition
-
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+THIRD_PARTY_APPS = [
+
+]
+
+LOCAL_APPS = [
     'cv',
     'genealogy',
     'bootstrap5',
     'mail_detector',
     'sandbox',
+    'apps.medical_bayes',
 ]
+
+FINAL_APPS = [
+
+]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS + FINAL_APPS
+
+# === MIDDLEWARE ===
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,8 +98,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'my_site_pro.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+# === DATABASE ===
 
 DATABASES = {
     'default': {
@@ -95,8 +108,7 @@ DATABASES = {
 }
 
 
-# Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
+# === PASSWORD VALIDATION ===
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -113,9 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
+# === Internationalization ===
 
 LANGUAGE_CODE = 'en-us'
 
@@ -125,21 +135,17 @@ USE_I18N = True
 
 USE_TZ = True
 
+# === STATIC & MEDIA ===
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
-# The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
 
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+# === DEFAULT PRIMARY KEY ===
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
