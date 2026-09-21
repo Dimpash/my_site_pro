@@ -171,8 +171,8 @@
             "ru": "PWA-приложение для применения теоремы Байеса в медицинской диагностике."
         },
         "Description": {
-            "en": "A PWA application for calculating the probability of the presence or absence of a disease based on Bayes' theorem and diagnostic test results.",
-            "ru": "PWA-приложение для расчёта вероятности наличия или отсутствия заболевания на основе теоремы Байеса и результатов диагностического теста."
+            "en": "A PWA application for calculating the probability of the presence or absence of a disease based on Bayes' theorem and diagnostic test results.\n Development environment: Flutter.",
+            "ru": "PWA-приложение для расчёта вероятности наличия или отсутствия заболевания на основе теоремы Байеса и результатов диагностического теста.\n Среда разработки: Flutter."
         }
     }
 }
