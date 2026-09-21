@@ -152,5 +152,27 @@
             "en": "A small web service for conducting fitness marathons. It provides user authorization, a progress journal, tracking of body measurements, and final result summaries. Built entirely on Google Sheets + Google Apps Script.",
             "ru": "Небольшой веб-сервис для проведения фитнес-марафонов. Обеспечивает авторизацию, дневник наблюдений, учёт контрольных замеров, подведение итогов. Полностью реализован на связке Google Sheets + Google Apps Script."
         }
+    },
+    "medical_bayes": {
+        "Name": {
+            "en": "Medical Bayes",
+            "ru": "Медицинский Байес"
+        },
+        "Category": "Web app, mobile",
+        "Client": {
+            "en": "Freelance",
+            "ru": "Freelance"
+        },
+        "Period": "2026",
+        "URL": "https://dzmitry76.onrender.com/medical-bayes/",
+        "Filter": "Mobile",
+        "Note": {
+            "en": "A PWA application for applying Bayes' theorem in medical diagnosis.",
+            "ru": "PWA-приложение для применения теоремы Байеса в медицинской диагностике."
+        },
+        "Description": {
+            "en": "A PWA application for calculating the probability of the presence or absence of a disease based on Bayes' theorem and diagnostic test results.",
+            "ru": "PWA-приложение для расчёта вероятности наличия или отсутствия заболевания на основе теоремы Байеса и результатов диагностического теста."
+        }
     }
 }
