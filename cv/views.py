@@ -1,10 +1,12 @@
-from django.conf import settings
-from django.contrib.staticfiles.storage import staticfiles_storage
-from django.shortcuts import render, redirect
+import json
+
 from datetime import datetime as dt
 from dateutil.relativedelta import relativedelta
-import json
-import os
+from django.conf import settings
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+
 from os import listdir
 from os.path import isfile, join
 
@@ -71,3 +73,16 @@ def portfolio_details(request, lang, portfolio_name):
         'images': images
         }
     return render(request, f'cv/{lang}/portfolio-details.html', context=context)
+
+
+########################################
+# Robots.txt
+########################################
+def robots_txt(request):
+    content = (
+        "User-agent: *\n"
+        "Allow: /\n"
+        "\n"
+        "Sitemap: https://dzmitry76.onrender.com/sitemap.xml\n"
+    )
+    return HttpResponse(content, content_type="text/plain")
